@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 export function Countdown({ targetDate }: { targetDate: string }) {
   const target = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => setNow(Date.now()), 1000);
